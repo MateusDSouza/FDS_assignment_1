@@ -4,18 +4,14 @@ import matplotlib.pyplot as plt
 from scipy.signal import convolve2d as conv2
 from skimage import color
 
-
+sigma = int(input())
 
 def gauss(sigma):
 
 	# probably better code than this for the output of the x vector of integers
-    if sigma < 1:
-    	_3sigma = 3*sigma
-    	ceiling = math.ceil(_3sigma)
-    	floor = math.floor(-(_3sigma)+1)
-    	x = np.array([x for x in range(floor, ceiling)])
-    if sigma >= 1:
-    	x = np.array([x for x in range(-3*sigma, 3*sigma+1)])
+    if sigma > 0:
+	form_sigma = int(3*sigma)
+    x = np.arange(-1*form_sigma,form_sigma,1)
 
     # Applying the function given to get a 1D gaussian. 
 
